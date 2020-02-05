@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Shop&amp;Go Document :: Shop&amp;Go Document</title>
+    <title> :: Shop&amp;Go Document</title>
 
     
     <link href="/css/nucleus.css?1580912642" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/new/sales_daily_to_monthly/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
     
     <li data-nav-id="" title="Apps" class="dd-item 
         
-        active
+        
         
         ">
       <a href="">
@@ -114,8 +114,8 @@
   
     
     <li data-nav-id="/new/" title="News" class="dd-item 
+        parent
         
-        active
         
         ">
       <a href="/new/">
@@ -138,7 +138,7 @@
  
   
     
-      <li data-nav-id="/new/sales_daily_to_monthly/" title="" class="dd-item ">
+      <li data-nav-id="/new/sales_daily_to_monthly/" title="" class="dd-item active">
         <a href="/new/sales_daily_to_monthly/">
         
         
@@ -166,7 +166,7 @@
     
     <li data-nav-id="/post/" title="Posts" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/post/">
@@ -217,7 +217,7 @@
     
     <li data-nav-id="" title="Posts" class="dd-item 
         
-        active
+        
         
         ">
       <a href="">
@@ -239,7 +239,7 @@
     
     <li data-nav-id="" title="Servers" class="dd-item 
         
-        active
+        
         
         ">
       <a href="">
@@ -261,7 +261,7 @@
     
     <li data-nav-id="" title="Tests" class="dd-item 
         
-        active
+        
         
         ">
       <a href="">
@@ -297,33 +297,280 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Shop&Go Document</a> > <a href='/new/'>News</a> > 
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#内容">内容</a>
+      <ul>
+        <li><a href="#対象テーブル">対象テーブル</a></li>
+        <li><a href="#処理内容">処理内容</a></li>
+        <li><a href="#実行タイミング">実行タイミング</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
-           
+<h1 id="日実績から月実績作成">日実績から月実績作成</h1>
+<h2 id="概要">概要</h2>
+<p>中継サーバーのRDSへ、月別実績を作成する。
+管理画面にて実績表示するために必要。</p>
+<h2 id="内容">内容</h2>
+<h3 id="対象テーブル">対象テーブル</h3>
+<p>テーブル名： <code>store_monthly_sales</code>  店舗別月別売上実績</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Attribute</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>serial</td>
+<td>PRIMARY KEY</td>
+<td>id</td>
+</tr>
+<tr>
+<td>company_code</td>
+<td>varchar(9)</td>
+<td>NOT NULL</td>
+<td>企業コード</td>
+</tr>
+<tr>
+<td>store_code</td>
+<td>varchar(9)</td>
+<td>NOT NULL</td>
+<td>店舗コード</td>
+</tr>
+<tr>
+<td>sale_month</td>
+<td>timestamp</td>
+<td>NOT NULL</td>
+<td>年月（YYYY-MM-01として登録）</td>
+</tr>
+<tr>
+<td>total_ex_vat</td>
+<td>integer</td>
+<td></td>
+<td>税抜合計</td>
+</tr>
+<tr>
+<td>total_in_vat</td>
+<td>integer</td>
+<td></td>
+<td>税込合計</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>integer</td>
+<td></td>
+<td>売上点数</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>integer</td>
+<td></td>
+<td>客数（＝精算済カート数）</td>
+</tr>
+<tr>
+<td>total_per_customer</td>
+<td>integer</td>
+<td></td>
+<td>客単価</td>
+</tr>
+<tr>
+<td>quantity_per_customer</td>
+<td>integer</td>
+<td></td>
+<td>平均購入点数</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp</td>
+<td></td>
+<td>作成日時</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp</td>
+<td></td>
+<td>更新日時</td>
+</tr>
+</tbody>
+</table>
+<h3 id="処理内容">処理内容</h3>
+<p>店舗別日別売上実績（<code>store_daily_sales</code>) から店舗別・月別の実績を合計して店舗別月別売上実績（<code>store_monthly_sales</code>) へ各column値の登録を行う。</p>
+<h5 id="合計sumする対象column">合計（SUM）する対象column</h5>
+<ul>
+<li>total_ex_vat</li>
+<li>total_in_vat</li>
+<li>quantity</li>
+<li>customer</li>
+<li>total_per_customer</li>
+<li>quantity_per_customer</li>
+</ul>
+<h4 id="参考">参考</h4>
+<p>テーブル名： <code>store_daily_sales</code>  店舗別日別売上実績</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Attribute</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>serial</td>
+<td>PRIMARY KEY</td>
+<td>id</td>
+</tr>
+<tr>
+<td>company_code</td>
+<td>varchar(9)</td>
+<td>NOT NULL</td>
+<td>企業コード</td>
+</tr>
+<tr>
+<td>store_code</td>
+<td>varchar(9)</td>
+<td>NOT NULL</td>
+<td>店舗コード</td>
+</tr>
+<tr>
+<td>sale_date</td>
+<td>timestamp</td>
+<td>NOT NULL</td>
+<td>年月日</td>
+</tr>
+<tr>
+<td>total_ex_vat</td>
+<td>integer</td>
+<td></td>
+<td>税抜合計</td>
+</tr>
+<tr>
+<td>total_in_vat</td>
+<td>integer</td>
+<td></td>
+<td>税込合計</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>integer</td>
+<td></td>
+<td>売上点数</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>integer</td>
+<td></td>
+<td>客数（＝精算済カート数）</td>
+</tr>
+<tr>
+<td>total_per_customer</td>
+<td>integer</td>
+<td></td>
+<td>客単価</td>
+</tr>
+<tr>
+<td>quantity_per_customer</td>
+<td>integer</td>
+<td></td>
+<td>平均購入点数</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>timestamp</td>
+<td></td>
+<td>作成日時</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>timestamp</td>
+<td></td>
+<td>更新日時</td>
+</tr>
+</tbody>
+</table>
+<h3 id="実行タイミング">実行タイミング</h3>
+<p>1日1回。
+prismatixから日別実績を登録した後に実行する。
+夜間想定。</p>
+
+
+<footer class=" footline" >
 	
-		<h1>Customize your own home page</h1>
-		<p>
-		  The site is working. Don't forget to customize this homepage with your own. You typically have 3 choices :
-		</p>
-		<ul>
-			<li><b>1. </b> Create an _index.md document in <b>content</b> folder and fill it with Markdown content</li>
-			<li><b>2. </b> Create an <b>index.html</b> file in the <b>static</b> folder and fill the file with HTML content</li>
-		  <li><b>3. </b> Configure your server to automatically redirect home page to one your documentation page</li>
-		</ul>
-	
-  
+</footer>
+
+
         
         </div> 
         
@@ -372,8 +619,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -387,6 +632,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -406,6 +652,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -497,7 +746,7 @@
 			<a class="nav nav-prev" href="" title="Servers"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/new/" title="News" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/post/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shop&amp;Go Document</title>
-    <link>https://focused-jackson-e5b21b.netlify.com/</link>
-    <description>Recent content on Shop&amp;Go Document</description>
+    <title>News on Shop&amp;Go Document</title>
+    <link>https://focused-jackson-e5b21b.netlify.com/new/</link>
+    <description>Recent content in News on Shop&amp;Go Document</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://focused-jackson-e5b21b.netlify.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://focused-jackson-e5b21b.netlify.com/new/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <description>日実績から月実績作成 概要 中継サーバーのRDSへ、月別実績を作成する。 管理画面にて実績表示するために必要。
 内容 対象テーブル テーブル名： store_monthly_sales 店舗別月別売上実績
    Column Type Attribute Comment     id serial PRIMARY KEY id   company_code varchar(9) NOT NULL 企業コード   store_code varchar(9) NOT NULL 店舗コード   sale_month timestamp NOT NULL 年月（YYYY-MM-01として登録）   total_ex_vat integer  税抜合計   total_in_vat integer  税込合計   quantity integer  売上点数   customer integer  客数（＝精算済カート数）   total_per_customer integer  客単価   quantity_per_customer integer  平均購入点数   created_at timestamp  作成日時   updated_at timestamp  更新日時    処理内容 店舗別日別売上実績（store_daily_sales) から店舗別・月別の実績を合計して店舗別月別売上実績（store_monthly_sales) へ各column値の登録を行う。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://focused-jackson-e5b21b.netlify.com/post/markdown/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://focused-jackson-e5b21b.netlify.com/post/markdown/</guid>
-      <description>markdown.md あああああああ
-テスト いいいいいい</description>
     </item>
     
   </channel>

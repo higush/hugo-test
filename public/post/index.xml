@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Shop&amp;Go Document</title>
-    <link>http://example.org/post/</link>
+    <link>https://focused-jackson-e5b21b.netlify.com/post/</link>
     <description>Recent content in Posts on Shop&amp;Go Document</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://focused-jackson-e5b21b.netlify.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>http://example.org/post/markdown/</link>
+      <link>https://focused-jackson-e5b21b.netlify.com/post/markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/markdown/</guid>
+      <guid>https://focused-jackson-e5b21b.netlify.com/post/markdown/</guid>
       <description>markdown.md あああああああ
 テスト いいいいいい</description>
     </item>
